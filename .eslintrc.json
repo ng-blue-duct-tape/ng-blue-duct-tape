@@ -1,0 +1,107 @@
+{
+  "root": true,
+  "ignorePatterns": ["**/*"],
+  "plugins": ["@nrwl/nx"],
+  "overrides": [
+    {
+      "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
+      "rules": {
+        "@nrwl/nx/enforce-module-boundaries": [
+          "error",
+          {
+            "enforceBuildableLibDependency": true,
+            "allow": [],
+            "depConstraints": [
+              {
+                "sourceTag": "*",
+                "onlyDependOnLibsWithTags": ["*"]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "files": ["*.ts", "*.tsx"],
+      "extends": [
+        "plugin:@nrwl/nx/typescript",
+        "airbnb-base",
+        "airbnb-typescript/base",
+        "prettier"
+      ],
+      "plugins": ["simple-import-sort", "prettier"],
+      "rules": {
+        "import/no-extraneous-dependencies": "off",
+        "prettier/prettier": [
+          "error",
+          {
+            "printWidth": 80
+          }
+        ],
+        "simple-import-sort/imports": [
+          "error",
+          {
+            "groups": [
+              ["^@?\\w"],
+              // Internal packages.
+              ["^(@)(/.*|$)"],
+              // Side effect imports.
+              ["^\\u0000"],
+              // Parent imports. Put `..` last.
+              ["^\\.\\.(?!/?$)", "^\\.\\./?$"],
+              // Other relative imports. Put same-folder imports and `.` last.
+              ["^\\./(?=.*/)(?!/?$)", "^\\.(?!/?$)", "^\\./?$"]
+            ]
+          }
+        ],
+        "sort-imports": "off",
+        "import/order": "off",
+        "prefer-destructuring": "off",
+        "no-underscore-dangle": "off",
+        "import/no-unresolved": "off",
+        "import/prefer-default-export": "off",
+        "class-methods-use-this": "off",
+        "lines-between-class-members": "off",
+        "@typescript-eslint/explicit-function-return-type": [
+          "error",
+          {
+            "allowExpressions": true
+          }
+        ],
+        "@typescript-eslint/dot-notation": "off",
+        "@typescript-eslint/lines-between-class-members": [
+          "error",
+          "always",
+          { "exceptAfterSingleLine": true }
+        ],
+        "@typescript-eslint/unbound-method": [
+          "error",
+          {
+            "ignoreStatic": true
+          }
+        ],
+        "@angular-eslint/directive-selector": [
+          "error",
+          {
+            "type": "attribute",
+            "prefix": "app",
+            "style": "camelCase"
+          }
+        ],
+        "@angular-eslint/component-selector": [
+          "error",
+          {
+            "type": "element",
+            "prefix": "app",
+            "style": "kebab-case"
+          }
+        ]
+      }
+    },
+    {
+      "files": ["*.js", "*.jsx"],
+      "extends": ["plugin:@nrwl/nx/javascript"],
+      "rules": {}
+    }
+  ]
+}

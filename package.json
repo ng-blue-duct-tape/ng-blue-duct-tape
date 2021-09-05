@@ -1,0 +1,90 @@
+{
+  "name": "ng-blue-duct-tape",
+  "version": "0.0.0",
+  "license": "MIT",
+  "scripts": {
+    "ng": "nx",
+    "postinstall": "node ./decorate-angular-cli.js && ngcc --properties es2015 browser module main",
+    "start": "ng serve --host=0.0.0.0 --disable-host-check",
+    "build": "nx run ng-blue-duct-tape:build:production --skip-nx-cache",
+    "test": "nx test",
+    "lint": "nx workspace-lint && ng lint && stylelint **/*{.css,.scss}",
+    "lint:all": "nx run-many --all --target=lint",
+    "stylelint": "stylelint **/*{.css,.scss}",
+    "stylelint:fix": "stylelint **/*{.css,.scss} --fix",
+    "precommit": "lint-staged",
+    "prepare": "husky install"
+  },
+  "private": true,
+  "dependencies": {
+    "@angular/animations": "^12.1.0",
+    "@angular/common": "^12.1.0",
+    "@angular/compiler": "^12.1.0",
+    "@angular/core": "^12.1.0",
+    "@angular/forms": "^12.1.0",
+    "@angular/platform-browser": "^12.1.0",
+    "@angular/platform-browser-dynamic": "^12.1.0",
+    "@angular/router": "^12.1.0",
+    "@nrwl/angular": "12.8.0",
+    "gsap": "^3.7.1",
+    "rxjs": "~6.6.0",
+    "tslib": "^2.0.0",
+    "zone.js": "~0.11.4"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "~12.1.0",
+    "@angular-eslint/eslint-plugin": "~12.3.0",
+    "@angular-eslint/eslint-plugin-template": "~12.3.0",
+    "@angular-eslint/template-parser": "~12.3.0",
+    "@angular/cli": "~12.1.0",
+    "@angular/compiler-cli": "^12.1.0",
+    "@angular/language-service": "^12.1.0",
+    "@nrwl/cli": "12.8.0",
+    "@nrwl/cypress": "12.8.0",
+    "@nrwl/eslint-plugin-nx": "12.8.0",
+    "@nrwl/jest": "12.8.0",
+    "@nrwl/linter": "12.8.0",
+    "@nrwl/tao": "12.8.0",
+    "@nrwl/workspace": "12.8.0",
+    "@types/jest": "26.0.24",
+    "@types/node": "14.14.33",
+    "@typescript-eslint/eslint-plugin": "~4.28.3",
+    "@typescript-eslint/parser": "~4.28.3",
+    "cypress": "^8.3.0",
+    "eslint": "7.22.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-config-airbnb-typescript": "^13.0.1",
+    "eslint-config-prettier": "8.1.0",
+    "eslint-plugin-cypress": "^2.10.3",
+    "eslint-plugin-import": "^2.24.2",
+    "eslint-plugin-prettier": "^3.4.1",
+    "eslint-plugin-simple-import-sort": "^7.0.0",
+    "husky": "^7.0.2",
+    "jest": "27.0.3",
+    "jest-preset-angular": "9.0.4",
+    "lint-staged": "^11.1.2",
+    "prettier": "^2.3.1",
+    "stylelint": "^13.13.1",
+    "stylelint-config-prettier": "^8.0.2",
+    "stylelint-config-rational-order": "^0.1.2",
+    "stylelint-order": "^4.1.0",
+    "stylelint-prettier": "^1.2.0",
+    "stylelint-scss": "^3.20.1",
+    "ts-jest": "27.0.3",
+    "typescript": "~4.3.5"
+  },
+  "lint-staged": {
+    "*.{js,ts}": [
+      "eslint --fix --color"
+    ],
+    "*.{css,scss}": [
+      "stylelint --fix --color"
+    ],
+    "*.html": [
+      "prettier --write --color"
+    ],
+    "*.json": [
+      "prettier --write --color"
+    ]
+  }
+}
