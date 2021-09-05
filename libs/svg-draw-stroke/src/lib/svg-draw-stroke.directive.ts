@@ -13,6 +13,8 @@ import { StrokeElement } from './svg-draw-stroke.common';
 })
 export class SvgDrawStrokeDirective implements AfterViewInit {
   @Input() manualInit = false;
+  @Input() strokeLinecap: 'butt' | 'round' | 'square' | false = 'round';
+  @Input() strokeLinecapAll = false;
 
   private _isSvgElement = false;
   private _isInit = false;
@@ -64,6 +66,14 @@ export class SvgDrawStrokeDirective implements AfterViewInit {
         }
         if (node instanceof SVGGeometryElement) {
           if (node.getAttribute('stroke-width')) {
+            if (this.strokeLinecapAll && this.strokeLinecap) {
+              this._setStrokeLinecap(node);
+            } else if (
+              !node.getAttribute('stroke-linecap') &&
+              this.strokeLinecap
+            ) {
+              this._setStrokeLinecap(node);
+            }
             const strokeTotal = Math.ceil(node.getTotalLength()) + 1;
             this.stokeElements.push({
               element: node,
@@ -90,5 +100,9 @@ export class SvgDrawStrokeDirective implements AfterViewInit {
 
   private _setStrokeDasharray(node: ChildNode, strokeTotal: number): void {
     this._renderer.setStyle(node, 'stroke-dasharray', strokeTotal);
+  }
+
+  private _setStrokeLinecap(node: ChildNode): void {
+    this._renderer.setStyle(node, 'stroke-linecap', this.strokeLinecap);
   }
 }
