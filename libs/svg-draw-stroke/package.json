@@ -1,0 +1,37 @@
+{
+  "name": "@ng-blue-duct-tape/svg-draw-stroke",
+  "version": "0.0.1",
+  "author": {
+    "name": "Yan Merkushin",
+    "email": "yan.merkushin@icloud.com",
+    "url": "https://github.com/Yanduz"
+  },
+  "license": "MIT",
+  "keywords": [
+    "ng",
+    "angular",
+    "ng-angular",
+    "angular-lib",
+    "library",
+    "angular-library",
+    "svg",
+    "stroke",
+    "svg-stroke",
+    "draw",
+    "svg-draw",
+    "blue-duct-tape",
+    "ng-blue-duct-tape",
+    "svg-draw-stroke"
+  ],
+  "description": "Angular library that allows you to access elements inside SVG for further animation",
+  "bugs": "https://github.com/ng-blue-duct-tape/ng-blue-duct-tape/issues",
+  "homepage": "https://github.com/ng-blue-duct-tape/ng-blue-duct-tape",
+  "repository": "https://github.com/ng-blue-duct-tape/ng-blue-duct-tape",
+  "peerDependencies": {
+    "@angular/common": "^12.1.0",
+    "@angular/core": "^12.1.0"
+  },
+  "dependencies": {
+    "tslib": "^2.2.0"
+  }
+}

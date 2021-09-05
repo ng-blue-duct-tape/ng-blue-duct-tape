@@ -14,7 +14,9 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {},
+    "paths": {
+      "@ng-blue-duct-tape": ["libs/svg-draw-stroke/src/index.ts"]
+    },
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "noImplicitReturns": true,
