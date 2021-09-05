@@ -16,7 +16,7 @@
           "error",
           {
             "type": "attribute",
-            "prefix": "btd",
+            "prefix": "bdt",
             "style": "camelCase"
           }
         ],
@@ -24,7 +24,7 @@
           "error",
           {
             "type": "element",
-            "prefix": "btd",
+            "prefix": "bdt",
             "style": "kebab-case"
           }
         ]
