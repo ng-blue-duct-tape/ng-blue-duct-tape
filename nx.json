@@ -29,6 +29,9 @@
   "projects": {
     "ng-blue-duct-tape": {
       "tags": []
+    },
+    "svg-draw-stroke": {
+      "tags": ["libs/svg-draw-stroke"]
     }
   }
 }

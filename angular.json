@@ -93,6 +93,39 @@
           }
         }
       }
+    },
+    "svg-draw-stroke": {
+      "projectType": "library",
+      "root": "libs/svg-draw-stroke",
+      "sourceRoot": "libs/svg-draw-stroke/src",
+      "prefix": "btd",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:package",
+          "outputs": ["dist/libs/svg-draw-stroke"],
+          "options": {
+            "project": "libs/svg-draw-stroke/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/svg-draw-stroke/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "libs/svg-draw-stroke/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/svg-draw-stroke/src/**/*.ts",
+              "libs/svg-draw-stroke/src/**/*.html"
+            ]
+          }
+        }
+      }
     }
   },
   "cli": {
