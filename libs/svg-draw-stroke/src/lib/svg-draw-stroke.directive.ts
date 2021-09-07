@@ -9,7 +9,7 @@ import {
 import { StrokeElement } from './svg-draw-stroke.common';
 
 @Directive({
-  selector: '[bdtSvgDrawStroke], bdtSvgDrawStroke',
+  selector: '[bdtSvgDrawStroke]',
 })
 export class SvgDrawStrokeDirective implements AfterViewInit {
   @Input() manualInit = false;
